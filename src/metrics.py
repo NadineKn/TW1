@@ -23,10 +23,18 @@ units_per_city = df.groupby(['city', 'category'])['units'].sum().unstack()
 category_per_city = df.groupby(['city', 'category'])['revenue'].sum().unstack()
 
 
+# Kod till 3. När säljer vi?
+
+df_date = df.copy()
+
+df_date["date"] = pd.to_datetime(df["date"])
+
+df_date["month"] = df_date["date"].dt.month
+df_date["day"] = df_date["date"].dt.day
 
 
-
-
+revenue_by_day_of_month = df_date.groupby("day")["revenue"].sum().sort_values(ascending=False).round(2)
+revenue_by_month = df_date.groupby("month")["revenue"].sum().sort_index(ascending=False)
 
 
 
