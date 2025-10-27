@@ -82,6 +82,16 @@ revenue_by_day_of_month = df_date.groupby("day")["revenue"].sum().sort_values(as
 revenue_by_month = df_date.groupby("month")["revenue"].sum().sort_index(ascending=False)
 
 
+# Kod till 4. Hur ser en typsik order ut?
+
+order_value = df["revenue"].agg(["mean", "std", "min", "max"])
+order_value.index = [
+        "Average order value:",
+        "Standard deviation:",
+        "Minimum order value:",
+        "Maximum order value:"
+    ]
+print(order_value.round(2))
 
 
 # kod till 5. Top 3
