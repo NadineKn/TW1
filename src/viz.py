@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 =======
+=======
+>>>>>>> main
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -18,6 +21,7 @@ plt.xlabel("Category")
 plt.ylabel("Revenue")
 plt.grid(True, linestyle='-', linewidth=0.5)
 plt.tight_layout()
+<<<<<<< HEAD
 plt.show()
 
 # 3, när säljer vi?
@@ -59,3 +63,6 @@ plt.gca().yaxis.set_major_formatter(ticker.StrMethodFormatter('{x:,.0f}'))
 
 plt.show()
 >>>>>>> Stashed changes
+=======
+plt.show()
+>>>>>>> main

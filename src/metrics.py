@@ -1,6 +1,3 @@
-<<<<<<< Updated upstream
-=======
-<<<<<<< HEAD
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -42,6 +39,7 @@ print(revenue_by_month)
 
 
 
+<<<<<<< HEAD
 =======
 import numpy as np
 import pandas as pd
@@ -113,3 +111,5 @@ print(f"\nTotal omsättning: {total} (avrundad till {total_rounded})")
 
 >>>>>>> origin
 >>>>>>> Stashed changes
+=======
+>>>>>>> main
