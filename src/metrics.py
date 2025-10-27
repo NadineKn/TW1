@@ -44,7 +44,7 @@ top3 = kategori_sum.nlargest(3)
 total = kategori_sum.sum()
 total_rounded = max(1000, int(np.ceil(total / 500.0) * 500))
 
-print("Top 3 kategorier baserat på intäkt:")
+print("Top 3 kategorier baserat på omsättning:")
 print(top3)
-print(f"\nTotal intäkt: {total} (avrundad till {total_rounded})")
+print(f"\nTotal omsättning: {total} (avrundad till {total_rounded})")
 

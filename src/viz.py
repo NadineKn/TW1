@@ -30,8 +30,8 @@ kategori_sum = df.groupby("category")["revenue"].sum()
 top3 = kategori_sum.nlargest(3)
 top3.plot(kind="bar", color="skyblue")
 
-plt.title("Top 3 kategorier baserat på intäkt")
-plt.ylabel("Total intäkt")
+plt.title("Top 3 kategorier baserat på omsättning")
+plt.ylabel("Total omsättning")
 
 # Visa hela tal istället för 1e6
 plt.gca().yaxis.set_major_formatter(ticker.StrMethodFormatter('{x:,.0f}'))
