@@ -17,3 +17,28 @@ plt.ylabel("Revenue")
 plt.grid(True, linestyle='-', linewidth=0.5)
 plt.tight_layout()
 plt.show()
+
+
+
+
+
+
+
+
+
+
+
+
+
+#3 När säljer vi
+
+from metrics import revenue_by_month
+
+plt.plot(revenue_by_month.index, revenue_by_month.values)
+plt.xlabel("Month")
+plt.ylabel("Revenue")
+plt.title("Revenue by month")
+plt.grid(True)
+plt.tight_layout()
+plt.show()
+
