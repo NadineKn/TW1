@@ -18,7 +18,26 @@ plt.grid(True, linestyle='-', linewidth=0.5)
 plt.tight_layout()
 plt.show()
 
+# 3, när säljer vi?
+from metrics import revenue_by_month, revenue_by_day_of_month
 
+# Monthly
+plt.plot(revenue_by_month.index, revenue_by_month.values)
+plt.xlabel("Month")
+plt.ylabel("Revenue")
+plt.title("Revenue by month")
+plt.grid(True)
+plt.tight_layout()
+plt.show()
+
+# What day of the month
+plt.bar(revenue_by_day_of_month.index, revenue_by_day_of_month.values)
+plt.xlabel("Day")
+plt.ylabel("Revenue")
+plt.title("Best selling days of the months")
+plt.grid(True)
+plt.tight_layout()
+plt.show()
 
 
 #5. Top-3 kategorier
