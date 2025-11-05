@@ -57,7 +57,7 @@ print(top3)
 print(f"\nTotal omsättning: {total} (avrundad till {total_rounded})")
 
 
-# Kod till 6 avvikelser (compute_z_scores, detect_anomalies)
+# Kod till 6. Avvikelser (compute_z_scores, detect_anomalies)
 def compute_z_scores(series):
     """
     Räknar ut z-värden, alltså hur långt varje värde är från medelvärdet.
