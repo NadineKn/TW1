@@ -36,7 +36,18 @@ df_date["day"] = df_date["date"].dt.day
 revenue_by_day_of_month = df_date.groupby("day")["revenue"].sum().sort_values(ascending=False).round(2)
 revenue_by_month = df_date.groupby("month")["revenue"].sum().sort_index(ascending=False)
 
+# Kod till 4. Hur ser en typsik order ut?
 
+def average_order(df):
+  order_value = df["revenue"].agg(["mean", "std", "min", "max"])
+  order_value.index = [
+        "Genomsnittligt ordervärde:",
+        "Standardavvikelse:",
+        "Lägsta ordervärdet:",
+        "Högsta ordervärdet:"
+  ]
+  for name, value in order_value.astype(int).items():
+    print(f"{name} {value} kr")
 
 
 # kod till 5. Top 3

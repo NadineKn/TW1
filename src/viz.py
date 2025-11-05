@@ -39,6 +39,25 @@ plt.grid(True)
 plt.tight_layout()
 plt.show()
 
+# 4. Hur ser en typisk order ut?
+
+def order_distribution(df):
+    fig, (ax_hist, ax_box) = plt.subplots(2, 1, figsize=(10, 6), gridspec_kw={"height_ratios":[4,1]})
+    ax_hist.hist(df["revenue"], bins=50, edgecolor = "black")
+    ax_hist.set_title("Spridning av ordervärden")
+
+    ax_hist.set_ylabel("Antal ordrar")
+    ax_hist.grid(True, axis="y")
+
+    ax_box.boxplot(df["revenue"], vert=False)
+    ax_box.set_xlabel("Ordervärde (kr)")
+    ax_box.set_yticklabels("")
+    ax_box.grid(True, axis="x")
+
+    plt.tight_layout()
+    return fig
+    
+
 
 #5. Top-3 kategorier
 
