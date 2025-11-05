@@ -76,3 +76,4 @@ def detect_anomalies(series, threshold=3.0):
     z = compute_z_scores(series)
     mask = z.abs() >= threshold
     return series[mask], z
+
