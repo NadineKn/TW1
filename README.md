@@ -25,13 +25,13 @@
 - **Säsongstopp:** Januari
 
 - Satsa på kategori 'Electronics' i Stockholm under januari.
-- Undersök varför vi säljer sämre i mars och i Västerås.
+- Undersök varför vi säljer sämre i mars.
 - Undersök varför kategorierna 'Toys' och 'Beauty' säljer sämre.
 
 
 ## Miljö
 - **Python:** 3.13.7
-- **Paket:** 'Pandas', 'matplotlib', (se 'requirements.txt')
+- **Paket:** 'Pandas', 'Numpy', 'matplotlib', (se 'requirements.txt')
 
 ## Kom igång
 ```bash
