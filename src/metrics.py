@@ -56,3 +56,24 @@ print("Top 3 kategorier baserat på omsättning:")
 print(top3)
 print(f"\nTotal omsättning: {total} (avrundad till {total_rounded})")
 
+
+# Kod till 6. Avvikelser (compute_z_scores, detect_anomalies)
+def compute_z_scores(series):
+    """
+    Räknar ut z-värden, alltså hur långt varje värde är från medelvärdet.
+    Om alla värden är lika blir resultatet nollor.
+    """
+    mean = series.mean()
+    std = series.std(ddof=0)
+    if std == 0:
+        return series * 0
+    return (series - mean) / std
+
+def detect_anomalies(series, threshold=3.0):
+    """
+    Returnerar en serie värden där z-värdet är större än gränsen.
+    """
+    z = compute_z_scores(series)
+    mask = z.abs() >= threshold
+    return series[mask], z
+
