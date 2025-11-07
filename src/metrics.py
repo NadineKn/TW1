@@ -64,6 +64,7 @@ def revenue_summary(df):
     return kategori_sum, int(total)
 
 
+
 def detect_anomalies(df, column="revenue", Z=3):
   
     mean = df[column].mean()
