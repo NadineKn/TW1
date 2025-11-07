@@ -41,7 +41,6 @@ import pandas as pd
 
 def plot_top3_categories(df):
    
-   
     kategori_sum = df.groupby("category")["revenue"].sum()
     top3 = kategori_sum.nlargest(3)
 
@@ -55,7 +54,7 @@ def plot_top3_categories(df):
 def revenue_summary(df):
   
     kategori_sum = df.groupby("category")["revenue"].sum()
-    kategori_sum = np.ceil(kategori_sum)  # avrunda uppåt
+    kategori_sum = np.ceil(kategori_sum)  # avrundar uppåt
     total = np.ceil(df["revenue"].sum())
 
     print("Intäkt per kategori (avrundat uppåt):")
