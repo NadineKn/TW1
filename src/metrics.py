@@ -36,11 +36,36 @@ df_date["day"] = df_date["date"].dt.day
 revenue_by_day_of_month = df_date.groupby("day")["revenue"].sum().sort_values(ascending=False).round(2)
 revenue_by_month = df_date.groupby("month")["revenue"].sum().sort_index(ascending=False)
 
+# kod till 4. AOV
+
 
 
 
 # kod till 5. Top 3
-
+ 
+def plot_top3_categories(df):
+   
+    kategori_sum = df.groupby("category")["revenue"].sum()
+    top3 = kategori_sum.nlargest(3)
+ 
+    ax = top3.plot(kind="bar", color="skyblue")
+    plt.title("Top 3 kategorier baserat på omsättning")
+    plt.ylabel("Total omsättning")
+    ax.yaxis.set_major_formatter(ticker.StrMethodFormatter('{x:,.0f}'))
+    plt.show()
+ 
+ 
+def revenue_summary(df):
+ 
+    kategori_sum = df.groupby("category")["revenue"].sum()
+    kategori_sum = np.ceil(kategori_sum)  # avrundar uppåt
+    total = np.ceil(df["revenue"].sum())
+ 
+    print("Intäkt per kategori (avrundat uppåt):")
+    print(kategori_sum)
+    print(f"\nTotal intäkt (avrundat uppåt): {int(total)}")
+ 
+    return kategori_sum, int(total)
 
 # Summera intäkt per kategori
 kategori_sum = df.groupby("category")["revenue"].sum()
