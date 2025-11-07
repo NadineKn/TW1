@@ -34,17 +34,45 @@ category_per_city = df.groupby(['city', 'category'])['revenue'].sum().unstack()
 # kod till 5. Top 3
 
 
-# Summera intäkt per kategori
-kategori_sum = df.groupby("category")["revenue"].sum()
+import matplotlib.pyplot as plt
+import matplotlib.ticker as ticker
+import numpy as np
+import pandas as pd
 
-# Plocka fram topp 3
-top3 = kategori_sum.nlargest(3)
+def plot_top3_categories(df):
+   
+   
+    kategori_sum = df.groupby("category")["revenue"].sum()
+    top3 = kategori_sum.nlargest(3)
 
-# Totala intäkten (avrundad uppåt till närmaste 500, med min 1000)
-total = kategori_sum.sum()
-total_rounded = max(1000, int(np.ceil(total / 500.0) * 500))
+    ax = top3.plot(kind="bar", color="skyblue")
+    plt.title("Top 3 kategorier baserat på omsättning")
+    plt.ylabel("Total omsättning")
+    ax.yaxis.set_major_formatter(ticker.StrMethodFormatter('{x:,.0f}'))
+    plt.show()
 
-print("Top 3 kategorier baserat på omsättning:")
-print(top3)
-print(f"\nTotal omsättning: {total} (avrundad till {total_rounded})")
+
+def revenue_summary(df):
+  
+    kategori_sum = df.groupby("category")["revenue"].sum()
+    kategori_sum = np.ceil(kategori_sum)  # avrunda uppåt
+    total = np.ceil(df["revenue"].sum())
+
+    print("Intäkt per kategori (avrundat uppåt):")
+    print(kategori_sum)
+    print(f"\nTotal intäkt (avrundat uppåt): {int(total)}")
+
+    return kategori_sum, int(total)
+
+
+def detect_anomalies(df, column="revenue", Z=3):
+  
+    mean = df[column].mean()
+    std = df[column].std()
+    condition = np.abs(df[column] - mean) > Z * std
+    anomalies = df[condition]
+
+    print(f"Antal dagar som avviker mer än {Z} standardavvikelser: {len(anomalies)}")
+    return anomalies
+
 
