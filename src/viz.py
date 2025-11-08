@@ -52,7 +52,6 @@ def get_df():
 # plt.tight_layout()
 # plt.show()
 
-#4. AOV
 
 # 4. Hur ser en typisk order ut?
 
