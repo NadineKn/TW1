@@ -50,7 +50,6 @@ def average_order(df):
     print(f"{name} {value} kr")
 
 
-
 # kod till 5. Top 3
  
 def plot_top3_categories(df):
