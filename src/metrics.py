@@ -38,6 +38,16 @@ revenue_by_month = df_date.groupby("month")["revenue"].sum().sort_index(ascendin
 
 # kod till 4. AOV
 
+def average_order(df):
+  order_value = df["revenue"].agg(["mean", "std", "min", "max"])
+  order_value.index = [
+        "Genomsnittligt ordervärde:",
+        "Standardavvikelse:",
+        "Lägsta ordervärdet:",
+        "Högsta ordervärdet:"
+  ]
+  for name, value in order_value.astype(int).items():
+    print(f"{name} {value} kr")
 
 
 
